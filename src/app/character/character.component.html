@@ -1,5 +1,6 @@
 <div>
-<h3>{{hero.name}}</h3>
+<div class="character">
+    <h3>{{hero.name}}</h3>
 <p>
     Your character's name is <input type="text" placeholder="Name" [(ngModel)]="hero.name">.
     They are a <input type="text" placeholder="Race" [(ngModel)]="hero.race">
@@ -70,8 +71,9 @@
         </td>
     </tr>
 </table>
-
 <button>Save Character</button>
+<br>
+</div>
 <!-- change styles dynamically when input to any of those inputs -->
 <!-- there is a way to change input width to be attribute name.length+x ... 
     I'm thinking dynamically changing the width of inputs to be slightly larger than needed -->
