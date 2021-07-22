@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Hero } from '../Hero';
 
@@ -8,8 +8,7 @@ import { Hero } from '../Hero';
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent implements OnInit {
-  //@Input()
-hero:Hero = {
+  @Input()hero:Hero = {
   
   classType: "Bard",
   strength: 0,
@@ -36,3 +35,4 @@ isSaved: boolean = false; //we want this to change to false when user changes da
   }
 
 }
+// need to input hero from service...
