@@ -1,1 +1,4 @@
-<p>character-list works!</p>
+<h3>{{user}}'s Hero List</h3>
+<button (click)="createHero()">Create New Hero</button>
+<!-- change to user.name when refactored -->
+<app-character *ngFor="let hero of heroes"></app-character>
