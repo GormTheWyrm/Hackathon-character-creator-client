@@ -2,8 +2,8 @@
 <button (click)="createHero()">Create New Hero</button>
 <!-- change to user.name when refactored -->
 <app-character *ngIf="activeHero"></app-character>
-<table *ngFor="let h of heroes">
-    <tr (click)="selectHero(h)">
+<table >
+    <tr (click)="selectHero(h)" *ngFor="let h of heroes">
         <td>
             Hero: 
         </td>

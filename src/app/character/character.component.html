@@ -1,12 +1,14 @@
+<div>
 <h3>{{hero.name}}</h3>
 <p>
     Your character's name is <input type="text" [(ngModel)]="hero.name">.
     They are a <input type="text" [(ngModel)]="hero.gender">
     <input type="text" [(ngModel)]="hero.race"> with
     <input type="text" [(ngModel)]="hero.hairColor"> hair,
-    <input type="text" [(ngModel)]="hero.skinTone">" skin and
+    <input type="text" [(ngModel)]="hero.skinTone"> skin and
     <input type="text" [(ngModel)]="hero.eyeColor"> eyes.
 </p>
+<!-- add a p about their stats in sentence format -->
 <p>
     Their stats are:
 </p>
@@ -73,3 +75,5 @@
 <!-- change styles dynamically when input to any of those inputs -->
 <!-- there is a way to change input width to be attribute name.length+x ... 
     I'm thinking dynamically changing the width of inputs to be slightly larger than needed -->
+
+</div>
