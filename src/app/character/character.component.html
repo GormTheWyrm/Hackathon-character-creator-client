@@ -1,12 +1,12 @@
 <div>
 <h3>{{hero.name}}</h3>
 <p>
-    Your character's name is <input type="text" [(ngModel)]="hero.name">.
-    They are a <input type="text" [(ngModel)]="hero.gender">
-    <input type="text" [(ngModel)]="hero.race"> with
-    <input type="text" [(ngModel)]="hero.hairColor"> hair,
-    <input type="text" [(ngModel)]="hero.skinTone"> skin and
-    <input type="text" [(ngModel)]="hero.eyeColor"> eyes.
+    Your character's name is <input type="text" placeholder="Name" [(ngModel)]="hero.name">.
+    They are a <input type="text" placeholder="Race" [(ngModel)]="hero.race">
+    <input type="text" placeholder="Gender" [(ngModel)]="hero.gender"> with
+    <input type="text" placeholder="Hair color" [(ngModel)]="hero.hairColor"> hair,
+    <input type="text" placeholder="Skin tone" [(ngModel)]="hero.skinTone"> skin and
+    <input type="text" placeholder="Eye Color" [(ngModel)]="hero.eyeColor"> eyes.
 </p>
 <!-- add a p about their stats in sentence format -->
 <p>
