@@ -9,7 +9,7 @@ import { Hero } from '../Hero';
 export class CharacterListComponent implements OnInit {
  heroes:Hero[] = [];
   user: string = "Guest"; //change to a user object
-
+  activeHero?:Hero;
   constructor() { }
 
   ngOnInit(): void {
@@ -35,6 +35,9 @@ export class CharacterListComponent implements OnInit {
     this.heroes.push(newHero);
     //this hero needs to be added to the service info... so it doesnt dissappear
 
+  }
+  selectHero(her:Hero){
+    this.activeHero = her;
   }
 
 }
