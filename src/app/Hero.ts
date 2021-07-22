@@ -14,7 +14,7 @@ export interface Hero{
     gender:string,
     hairColor: string,
     eyeColor: string,
-    SKinTone:string
+    skinTone:string
 
 
 }

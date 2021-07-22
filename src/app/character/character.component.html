@@ -1,1 +1,75 @@
-<p>character works!</p>
+<h3>{{hero.name}}</h3>
+<p>
+    Your character's name is <input type="text" [(ngModel)]="hero.name">.
+    They are a <input type="text" [(ngModel)]="hero.gender">
+    <input type="text" [(ngModel)]="hero.race"> with
+    <input type="text" [(ngModel)]="hero.hairColor"> hair,
+    <input type="text" [(ngModel)]="hero.skinTone">" skin and
+    <input type="text" [(ngModel)]="hero.eyeColor"> eyes.
+</p>
+<p>
+    Their stats are:
+</p>
+<table>
+    <tr>
+        <td>
+            Strength: 
+        </td>
+        <td>
+<input type="number" [(ngModel)]="hero.strength">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Dexterity: 
+        </td>
+        <td>
+<input type="number" [(ngModel)]="hero.dexterity">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Intelligence: 
+        </td>
+        <td>
+<input type="number" [(ngModel)]="hero.intelligence">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Charisma: 
+        </td>
+        <td>
+<input type="number" [(ngModel)]="hero.charisma">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Wisdom: 
+        </td>
+        <td>
+<input type="number" [(ngModel)]="hero.wisdom">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Willpower: 
+        </td>
+        <td>
+<input type="number" [(ngModel)]="hero.willpower">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Constitution: 
+        </td>
+        <td>
+<input type="number" [(ngModel)]="hero.constitution">
+        </td>
+    </tr>
+</table>
+
+<button>Save Character</button>
+<!-- change styles dynamically when input to any of those inputs -->
+<!-- there is a way to change input width to be attribute name.length+x ... 
+    I'm thinking dynamically changing the width of inputs to be slightly larger than needed -->
