@@ -11,7 +11,7 @@ export class CharacterComponent implements OnInit {
   //@Input()
 hero:Hero = {
   
-  classType: "X",
+  classType: "Bard",
   strength: 0,
   dexterity: 0,
   intelligence: 0,
@@ -19,12 +19,12 @@ hero:Hero = {
   wisdom: 0,
   willpower: 0,
   constitution: 0,
-  name: "X",
-  race: "X",
-  gender: "X",
-  hairColor: "X",
-  eyeColor: "X",
-  skinTone: "X",
+  name: "DEFAULT NAME",
+  race: "BASIC HUMAN",
+  gender: "EFFEMINITE ELF",
+  hairColor: "NUT BROWN",
+  eyeColor: "BLANK",
+  skinTone: "PALE",
 }
 isSaved: boolean = false; //we want this to change to false when user changes data 
 // and change to true when http request works...
