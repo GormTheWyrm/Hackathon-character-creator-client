@@ -1,7 +1,7 @@
 export interface Hero{
 
     id?:number,
-    classType?:string,
+    classType:string,
     strength: number,
     dexterity: number,
     intelligence: number,
