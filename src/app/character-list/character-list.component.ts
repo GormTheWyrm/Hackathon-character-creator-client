@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteConfigLoadEnd, Router } from '@angular/router';
+import { ApiService } from '../api.service';
 import { Hero } from '../Hero';
+
 
 @Component({
   selector: 'app-character-list',
@@ -10,14 +13,36 @@ export class CharacterListComponent implements OnInit {
  heroes:Hero[] = [];
   user: string = "Guest"; //change to a user object
   activeHero?:Hero;
-  constructor() { }
+  username: any; 
+  herolist: any = []; 
+
+  constructor(private heroservice: ApiService, private router:Router) {
+  }
+  
 
   ngOnInit(): void {
+    this.username = localStorage.getItem("username"); 
+    this.getHeroes(); 
+  }
+
+  getHeroes() { 
+    this.heroservice.getHeroes(this.username).subscribe(res => {
+      this.herolist = res; 
+      console.log(this.herolist); 
+    })
+  }
+
+  createNew() { 
+    this.router.navigate(["/view"]); 
+  }
+  logout() { 
+    localStorage.removeItem("username")
+    localStorage.setItem("isLoggedIn", "false")
   }
   createHero(){
     let newHero:Hero = {
-  
-      classType: "X",
+      username: this.username,
+      classType: "Bard",
       strength: 0,
       dexterity: 0,
       intelligence: 0,
@@ -25,14 +50,15 @@ export class CharacterListComponent implements OnInit {
       wisdom: 0,
       willpower: 0,
       constitution: 0,
-      name: "Unsaved Hero",
-      race: "X",
-      gender: "X",
-      hairColor: "X",
-      eyeColor: "X",
-      skinTone: "X",
+      name: "DEFAULT NAME",
+      race: "BASIC HUMAN",
+      gender: "EFFEMINITE ELF",
+      hairColor: "NUT BROWN",
+      eyeColor: "BLANK",
+      skinTone: "PALE",
     }
     this.heroes.push(newHero);
+    this.activeHero = newHero;
     //this hero needs to be added to the service info... so it doesnt dissappear
 
   }

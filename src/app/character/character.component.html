@@ -1,24 +1,36 @@
 <div>
-<h3>{{hero.name}}</h3>
+<div class="character">
+    <h3>{{hero.name}}</h3>
 <p>
-    Your character's name is <input type="text" [(ngModel)]="hero.name">.
-    They are a <input type="text" [(ngModel)]="hero.gender">
-    <input type="text" [(ngModel)]="hero.race"> with
-    <input type="text" [(ngModel)]="hero.hairColor"> hair,
-    <input type="text" [(ngModel)]="hero.skinTone"> skin and
-    <input type="text" [(ngModel)]="hero.eyeColor"> eyes.
+    Your character's name is <input type="text" [(ngModel)]="hero.name" 
+    [ngStyle]="{width: hero.name.length+ 3 +'ch'} ">.
+    They are a <input type="text" [(ngModel)]="hero.gender"
+    [ngStyle]="{width: hero.gender.length+ 3 +'ch'}"> &nbsp;
+    <input type="text" [(ngModel)]="hero.race"
+    [ngStyle]="{width: hero.race.length+ 3 +'ch'}">&nbsp;
+    <input type="text" [(ngModel)]="hero.classType"
+    [ngStyle]="{width: hero.classType.length+ 3 +'ch'}"> with
+    <input type="text" [(ngModel)]="hero.hairColor"
+    [ngStyle]="{width: hero.hairColor.length+ 3 +'ch'}"> hair,
+    <input type="text" [(ngModel)]="hero.skinTone"
+    [ngStyle]="{width: hero.skinTone.length+ 3 +'ch'}"> skin and
+    <input type="text" [(ngModel)]="hero.eyeColor"
+    [ngStyle]="{width: hero.eyeColor.length+ 3 +'ch'}"> eyes.
 </p>
 <!-- add a p about their stats in sentence format -->
+
 <p>
     Their stats are:
 </p>
-<table>
+
+<p>Stat points remaining to be assigned: {{remaining}}</p>
+<table (change)="adjustRemaining()">
     <tr>
         <td>
             Strength: 
         </td>
         <td>
-<input type="number" [(ngModel)]="hero.strength">
+<input type="number"  [(ngModel)] ="hero.strength">
         </td>
     </tr>
     <tr>
@@ -71,7 +83,9 @@
     </tr>
 </table>
 
-<button>Save Character</button>
+</div>
+
+<button (click) = "saveCharacter()" [disabled] = "!valid">Save Character</button>
 <!-- change styles dynamically when input to any of those inputs -->
 <!-- there is a way to change input width to be attribute name.length+x ... 
     I'm thinking dynamically changing the width of inputs to be slightly larger than needed -->
