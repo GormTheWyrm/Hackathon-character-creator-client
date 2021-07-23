@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteConfigLoadEnd, Router } from '@angular/router';
+import { ApiService } from '../api.service';
 import { Hero } from '../Hero';
+
 
 @Component({
   selector: 'app-character-list',
@@ -10,13 +13,35 @@ export class CharacterListComponent implements OnInit {
  heroes:Hero[] = [];
   user: string = "Guest"; //change to a user object
   activeHero?:Hero;
-  constructor() { }
+  username: any; 
+  herolist: any = []; 
+
+  constructor(private heroservice: ApiService, private router:Router) {
+  }
+  
 
   ngOnInit(): void {
+    this.username = localStorage.getItem("username"); 
+    this.getHeroes(); 
+  }
+
+  getHeroes() { 
+    this.heroservice.getHeroes(this.username).subscribe(res => {
+      this.herolist = res; 
+      console.log(this.herolist); 
+    })
+  }
+
+  createNew() { 
+    this.router.navigate(["/view"]); 
+  }
+  logout() { 
+    localStorage.removeItem("username")
+    localStorage.setItem("isLoggedIn", "false")
   }
   createHero(){
     let newHero:Hero = {
-  
+      username: this.username,
       classType: "Bard",
       strength: 0,
       dexterity: 0,

@@ -22,13 +22,15 @@
 <p>
     Their stats are:
 </p>
-<table>
+
+<p>Stat points remaining to be assigned: {{remaining}}</p>
+<table (change)="adjustRemaining()">
     <tr>
         <td>
             Strength: 
         </td>
         <td>
-<input type="number" [(ngModel)]="hero.strength">
+<input type="number"  [(ngModel)] ="hero.strength">
         </td>
     </tr>
     <tr>
@@ -80,9 +82,10 @@
         </td>
     </tr>
 </table>
-<button>Save Character</button>
-<br>
+
 </div>
+
+<button (click) = "saveCharacter()" [disabled] = "!valid">Save Character</button>
 <!-- change styles dynamically when input to any of those inputs -->
 <!-- there is a way to change input width to be attribute name.length+x ... 
     I'm thinking dynamically changing the width of inputs to be slightly larger than needed -->
