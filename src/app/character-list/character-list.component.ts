@@ -14,7 +14,7 @@ export class CharacterListComponent implements OnInit {
   user: string = "Guest"; //change to a user object
   activeHero?:Hero;
   username: any; 
-  herolist: any = []; 
+  // herolist: any = []; 
 
   constructor(private heroservice: ApiService, private router:Router) {
   }
@@ -27,8 +27,8 @@ export class CharacterListComponent implements OnInit {
 
   getHeroes() { 
     this.heroservice.getHeroes(this.username).subscribe(res => {
-      this.herolist = res; 
-      console.log(this.herolist); 
+      this.heroes = res; 
+      console.log(this.heroes); 
     })
   }
 
@@ -39,29 +39,29 @@ export class CharacterListComponent implements OnInit {
     localStorage.removeItem("username")
     localStorage.setItem("isLoggedIn", "false")
   }
-  createHero(){
-    let newHero:Hero = {
-      username: this.username,
-      classType: "Bard",
-      strength: 0,
-      dexterity: 0,
-      intelligence: 0,
-      charisma: 0,
-      wisdom: 0,
-      willpower: 0,
-      constitution: 0,
-      name: "DEFAULT NAME",
-      race: "BASIC HUMAN",
-      gender: "EFFEMINITE ELF",
-      hairColor: "NUT BROWN",
-      eyeColor: "BLANK",
-      skinTone: "PALE",
-    }
-    this.heroes.push(newHero);
-    this.activeHero = newHero;
-    //this hero needs to be added to the service info... so it doesnt dissappear
+  // createHero(){
+  //   let newHero:Hero = {
+  //     username: this.username,
+  //     classType: "Bard",
+  //     strength: 0,
+  //     dexterity: 0,
+  //     intelligence: 0,
+  //     charisma: 0,
+  //     wisdom: 0,
+  //     willpower: 0,
+  //     constitution: 0,
+  //     name: "DEFAULT NAME",
+  //     race: "BASIC HUMAN",
+  //     gender: "EFFEMINITE ELF",
+  //     hairColor: "NUT BROWN",
+  //     eyeColor: "BLANK",
+  //     skinTone: "PALE",
+  //   }
+  //   this.heroes.push(newHero);
+  //   this.activeHero = newHero;
+  //   //this hero needs to be added to the service info... so it doesnt dissappear
 
-  }
+  // }
   selectHero(her:Hero){
     this.activeHero = her;
   }

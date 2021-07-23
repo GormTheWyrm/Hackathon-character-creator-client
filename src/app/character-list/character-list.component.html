@@ -1,21 +1,20 @@
-<h3>{{user}}'s Hero List</h3>
-<button (click)="createHero()">Create New Hero</button>
-<!-- change to user.name when refactored -->
-<app-character *ngIf="activeHero" [hero]="activeHero"></app-character>
-<table >
-    <tr  *ngFor="let h of heroes" (click)="selectHero(h)">
-        <td>
-            Hero: 
-        </td>
-        <td>
-            {{h.name}}
-        </td>
-    </tr>
-
+<table>
+    <button (click)="createNew()">Create Character</button>
+    <div *ngFor="let hero of heroes">
+        <tr>
+            <td>
+                Hero:
+            </td>
+            <td>
+                {{hero.name}}
+            </td>
+        </tr>
+        <tr>
+            <td>{{hero.race}}</td>
+            <td>{{hero.classType}}</td>
+        </tr>
+    </div>
 </table>
+    
 
-<!-- different methods -->
-
-
-<button (click) = "createNew()">Create Character</button> 
-<button (click) = "logout()">Log Out</button>
+    <button (click)="logout()">Log Out</button>
