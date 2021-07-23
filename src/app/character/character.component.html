@@ -82,6 +82,7 @@
 
         <button (click)="saveCharacter()" [disabled]="!valid" *ngIf = "newChar">Save Character</button>
         <button (click)="updateCharacter()" *ngIf = "!newChar">Update Character</button>
+        <button (click)="levelUp()" *ngIf = "!newChar">Level Up!</button>
         <button (click)="randomize()" *ngIf = "newChar">Randomize Character</button>
         <button (click)="goBack()">Cancel</button>
 

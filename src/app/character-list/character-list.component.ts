@@ -28,7 +28,6 @@ export class CharacterListComponent implements OnInit {
   getHeroes() { 
     this.heroservice.getHeroes(this.username).subscribe(res => {
       this.heroes = res; 
-      console.log(this.heroes); 
     })
   }
 

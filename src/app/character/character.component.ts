@@ -14,6 +14,7 @@ import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 export class CharacterComponent implements OnInit {
   //@Input()
   remaining:number = 20; 
+  level:number = 0; 
   valid:boolean = false; 
   newChar:boolean = true;
 
@@ -61,14 +62,15 @@ isSaved: boolean = false; //we want this to change to false when user changes da
       this.newChar = false;
       let hero = this.apiService.recieveHero();
       if(hero != undefined) { 
-        this.hero = hero; 
+        this.hero = hero;
+        this.adjustRemaining();  
       }
     } 
   }
 
   adjustRemaining() { 
     this.remaining = 20 - (this.hero.strength + this.hero.dexterity + this.hero.willpower
-       + this.hero.wisdom + this.hero.intelligence + this.hero.charisma + this.hero.constitution); 
+       + this.hero.wisdom + this.hero.intelligence + this.hero.charisma + this.hero.constitution - (this.level*3)); 
     if (this.remaining == 0) { 
       this.valid = true; 
     } else { 
@@ -98,6 +100,11 @@ isSaved: boolean = false; //we want this to change to false when user changes da
     this.router.navigate(['/list']); 
   }
 
+  levelUp() { 
+    this.remaining +=3;
+    this.level +=1;
+    console.log(this.level);   
+  }
   randomize() {
     this.remaining = 20;
     this.hero.strength = 0; 
