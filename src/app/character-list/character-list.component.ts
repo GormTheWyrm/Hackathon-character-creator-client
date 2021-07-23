@@ -14,7 +14,7 @@ export class CharacterListComponent implements OnInit {
   user: string = "Guest"; //change to a user object
   activeHero?:Hero;
   username: any; 
-  herolist: any = []; 
+  // herolist: any = []; 
 
   constructor(private heroservice: ApiService, private router:Router) {
   }
@@ -27,14 +27,14 @@ export class CharacterListComponent implements OnInit {
 
   getHeroes() { 
     this.heroservice.getHeroes(this.username).subscribe(res => {
-      this.herolist = res; 
-      console.log(this.herolist); 
+      this.heroes = res; 
+      console.log(this.heroes); 
     })
   }
 
-  createNew() { 
-    this.router.navigate(["/view"]); 
-  }
+  // createNew() { 
+  //   this.router.navigate(["/view"]); 
+  // }
   logout() { 
     localStorage.removeItem("username")
     localStorage.setItem("isLoggedIn", "false")
