@@ -20,7 +20,7 @@ export class CharacterComponent implements OnInit {
   constitution: 0,
   name: "DEFAULT NAME",
   race: "BASIC HUMAN",
-  gender: "EFFEMINITE ELF",
+  gender: "EFFEMINATE ELF",
   hairColor: "NUT BROWN",
   eyeColor: "BLANK",
   skinTone: "PALE",
