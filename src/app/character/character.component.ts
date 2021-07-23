@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Hero } from '../Hero';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-character',
@@ -33,7 +34,7 @@ isSaved: boolean = false; //we want this to change to false when user changes da
 // and change to true when http request works...
 
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router:Router) { }
 
   ngOnInit(): void {
     this.hero.username = localStorage.getItem("username"); 
@@ -47,6 +48,10 @@ isSaved: boolean = false; //we want this to change to false when user changes da
     } else { 
       this.valid = false; 
     }
+  }
+
+  goBack() { 
+    this.router.navigate(["/list"]);
   }
 
   saveCharacter() { 

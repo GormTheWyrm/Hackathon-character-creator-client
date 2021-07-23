@@ -12,6 +12,7 @@
 </p>
 
 <p>Stat points remaining to be assigned: {{remaining}}</p>
+
 <table (change)="adjustRemaining()">
     <tr>
         <td>
@@ -71,7 +72,11 @@
     </tr>
 </table>
 
+
+
 <button (click) = "saveCharacter()" [disabled] = "!valid">Save Character</button>
+<button (click) = "goBack()">Cancel</button>
+
 <!-- change styles dynamically when input to any of those inputs -->
 <!-- there is a way to change input width to be attribute name.length+x ... 
     I'm thinking dynamically changing the width of inputs to be slightly larger than needed -->

@@ -1,5 +1,9 @@
-<p>character-list works!</p>
-
-
+<table>
+    <tr *ngFor="let hero of herolist">
+        <td>{{hero.name}}</td>
+        <td>{{hero.race}} {{hero.classType}}</td>
+    </tr>
+</table>
+<br>
 <button (click) = "createNew()">Create Character</button> 
 <button (click) = "logout()">Log Out</button>
