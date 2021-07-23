@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 
+
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -14,7 +15,7 @@ export class CharacterComponent implements OnInit {
   //@Input()
   remaining:number = 20; 
   valid:boolean = false; 
-  newChar:boolean = true; 
+  newChar:boolean = true;
 
   //for randomization
   gender: string[] = ["Male", "Female"]; 
@@ -38,7 +39,7 @@ export class CharacterComponent implements OnInit {
   wisdom: 0,
   willpower: 0,
   constitution: 0,
-  name: "name",
+  name: "name", 
   race: "race",
   gender: "gender",
   hairColor: "hair color",
@@ -52,10 +53,17 @@ isSaved: boolean = false; //we want this to change to false when user changes da
   constructor(private apiService: ApiService, private router:Router) { }
 
   ngOnInit(): void {
-    this.hero.username = localStorage.getItem("username"); 
-    if (this.hero.id) { 
-      this.newChar = false; 
-    }
+    this.hero.username = localStorage.getItem("username");
+    let id = this.apiService.recieveHeroId(); 
+    if(id == 0) { 
+      this.newChar = true; 
+    } else { 
+      this.newChar = false;
+      let hero = this.apiService.recieveHero();
+      if(hero != undefined) { 
+        this.hero = hero; 
+      }
+    } 
   }
 
   adjustRemaining() { 
@@ -80,6 +88,14 @@ isSaved: boolean = false; //we want this to change to false when user changes da
     this.apiService.addNew(newHero).subscribe(res => {
       this.hero = res; 
     })
+    this.router.navigate(['/list']); 
+  }
+
+  updateCharacter() { 
+    this.apiService.updateHero(this.hero).subscribe(res => {
+      this.hero = res; 
+    })
+    this.router.navigate(['/list']); 
   }
 
   randomize() {

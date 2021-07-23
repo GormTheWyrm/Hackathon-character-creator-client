@@ -8,7 +8,8 @@ import { Hero } from './Hero';
 })
 
 export class ApiService {
-  
+  heroId:number = 0;
+  savedHero?:Hero;  
   baseUrl = 'http://localhost:8080/heroes/';
   constructor(private http: HttpClient) { }
 
@@ -23,5 +24,21 @@ export class ApiService {
 
   updateHero(updatedHero: Hero): Observable<any> { 
     return this.http.put<any>(this.baseUrl + "update", updatedHero)
+  }
+
+  sendHeroId(id:any) {  
+    this.heroId = id; 
+  }
+
+  sendHero(hero:Hero) { 
+    this.savedHero = hero; 
+  }
+  
+  recieveHeroId() {
+    return this.heroId; 
+  }
+
+  recieveHero() { 
+    return this.savedHero; 
   }
 }
