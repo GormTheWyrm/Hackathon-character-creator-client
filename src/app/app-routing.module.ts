@@ -9,7 +9,7 @@ const routes: Routes = [
     {path: 'view', component: CharacterComponent},
     {path: 'list', component: CharacterListComponent},
     {path: '', component: UserComponent},
-    {path: '*', component: CharacterListComponent}
+    {path: 'login', component: LoginComponent}
 
 ];
 
