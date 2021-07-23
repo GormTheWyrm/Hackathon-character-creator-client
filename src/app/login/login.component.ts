@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   login() { 
     localStorage.setItem("username", this.username); 
     localStorage.setItem("isLoggedIn", "true");
-    this.router.navigate(["/list"]); 
+    this.router.navigate(["/login"]); 
   }
 
 }

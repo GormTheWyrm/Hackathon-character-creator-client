@@ -1,6 +1,6 @@
 <table>
     <button (click)="createNew()">Create Character</button>
-    <div *ngFor="let hero of heroes">
+    <div (click) = "selectHero(hero)" *ngFor="let hero of heroes">
         <tr>
             <td>
                 Hero:

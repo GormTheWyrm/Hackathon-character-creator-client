@@ -38,6 +38,7 @@ export class CharacterListComponent implements OnInit {
   logout() { 
     localStorage.removeItem("username")
     localStorage.setItem("isLoggedIn", "false")
+    this.router.navigate(["/login"])
   }
   // createHero(){
   //   let newHero:Hero = {
