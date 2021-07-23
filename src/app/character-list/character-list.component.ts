@@ -10,7 +10,7 @@ import { Hero } from '../Hero';
   styleUrls: ['./character-list.component.css']
 })
 export class CharacterListComponent implements OnInit {
- heroes:Hero[] = [];
+  heroes:Hero[] = [];
   user: string = "Guest"; //change to a user object
   activeHero?:Hero;
   username: any; 
@@ -33,6 +33,11 @@ export class CharacterListComponent implements OnInit {
   }
 
   createNew() { 
+    if (this.activeHero?.id != undefined) { 
+      this.heroservice.sendHeroId(this.activeHero.id); 
+    } else { 
+      this.heroservice.sendHeroId(0); 
+    }
     this.router.navigate(["/view"]); 
   }
   logout() { 
@@ -65,6 +70,9 @@ export class CharacterListComponent implements OnInit {
   // }
   selectHero(her:Hero){
     this.activeHero = her;
+    this.heroservice.sendHeroId(this.activeHero.id); 
+    this.heroservice.sendHero(her); 
+    this.router.navigate(['/view'])
   }
 
 }
